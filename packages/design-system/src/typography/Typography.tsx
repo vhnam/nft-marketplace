@@ -1,13 +1,17 @@
 import styled from '@emotion/styled';
-import { ReactNode } from 'react';
+import { CSSProperties, ElementType, ReactNode } from 'react';
 import {
+  color,
   typography,
   TypographyProps as RootTypographyProps,
 } from 'styled-system';
 
 import { getVariant } from './styles';
 
-interface TypographyProps extends RootTypographyProps {
+interface TypographyProps
+  extends RootTypographyProps,
+    Omit<CSSProperties, keyof RootTypographyProps | 'translate'> {
+  as?: ElementType<any>;
   children: ReactNode;
   variant?:
     | 'hero'
@@ -25,15 +29,13 @@ interface TypographyProps extends RootTypographyProps {
     | 'button2';
 }
 
-const StyledTypography = styled.span<
+const StyledTypography = styled.div<
   Omit<TypographyProps, 'children' | 'theme'>
->(({ variant = 'body1', ...props }) => {
-  const { children, theme, ...componentProps } = props;
-  return {
-    ...typography(getVariant(variant)),
-    ...componentProps,
-  };
-});
+>(({ variant = 'body1', children, theme, ...props }) => ({
+  ...typography(getVariant(variant)),
+  ...color(props),
+  ...props,
+}));
 
 const Typography = ({ children, variant, ...props }: TypographyProps) => {
   return (
@@ -44,6 +46,7 @@ const Typography = ({ children, variant, ...props }: TypographyProps) => {
 };
 
 Typography.defaultProps = {
+  as: 'div',
   variant: 'body1',
 };
 
