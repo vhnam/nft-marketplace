@@ -2,7 +2,7 @@ import components from './components';
 import foundations from './foundations';
 
 const theme = {
-  ...components,
+  components,
   ...foundations,
 };
 

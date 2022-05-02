@@ -5,7 +5,7 @@ const baseStyle = {
   display: 'inline-flex',
   alignItems: 'center',
   appearance: 'none',
-  ...typography.styles.button['01'],
+  ...typography.styles.button1,
   verticalAlign: 'middle',
   borderRadius: '5.625rem',
 };

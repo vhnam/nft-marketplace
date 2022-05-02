@@ -23,10 +23,9 @@ const StyledButton = styled.button<Omit<ButtonProps, 'children' | 'type'>>(
     ...props
   }) => {
     const { children, type, ...componentProps } = props;
-    console.log(size);
     return {
       ...componentProps,
-      ...theme.button.baseStyle,
+      ...theme.components.button.baseStyle,
       ...getSize(size),
       ...getVariant(variant),
       ...setFullwidth(fullWidth),
