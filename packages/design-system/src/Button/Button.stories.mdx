@@ -9,7 +9,27 @@ import Button from './Button';
 This is the doc of the `BaseButton` component
 
 <Canvas>
-  <Story name="base">
-    <Button>AHIHI</Button>
+  <Story name="Variants">
+    <Button variant="neutral">Neutral</Button>
+    <Button variant="tertiary">Tertiary</Button>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Sizes">
+    <Button size="x-small">X-Small</Button>
+    <Button size="small">Small</Button>
+    <Button size="medium">Medium</Button>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled">
+    <Button variant="neutral" disabled>
+      Neutral
+    </Button>
+    <Button variant="tertiary" disabled>
+      Tertiary
+    </Button>
   </Story>
 </Canvas>

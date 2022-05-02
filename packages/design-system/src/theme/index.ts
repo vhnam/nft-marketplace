@@ -1,16 +1,11 @@
+import components from './components';
+import foundations from './foundations';
+
 const theme = {
-  primary: {
-    main: '#556cd6',
-  },
-  secondary: {
-    main: '#19857b',
-  },
-  error: {
-    main: '#ce3232',
-  },
-  background: {
-    default: '#fff',
-  },
+  ...components,
+  ...foundations,
 };
+
+export type Theme = typeof theme;
 
 export default theme;
