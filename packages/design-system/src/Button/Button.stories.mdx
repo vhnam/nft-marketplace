@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs';
 import { BiInfoCircle } from 'react-icons/bi';
 
 import Button from './Button';
@@ -19,7 +19,7 @@ Best practices
 
 ## Imports
 
-```ts
+```tsx
 import { Button } from 'design-system';
 ```
 
@@ -118,3 +118,7 @@ All action that cannot be performed yet.
     </Button>
   </Story>
 </Canvas>
+
+## Props
+
+<ArgsTable of={Button} />

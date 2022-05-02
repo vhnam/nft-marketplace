@@ -23,7 +23,7 @@ const StyledButton = styled.button<Omit<ButtonProps, 'children' | 'type'>>(
     ...props
   }) => {
     const { children, type, ...componentProps } = props;
-    console.log(size)
+    console.log(size);
     return {
       ...componentProps,
       ...theme.button.baseStyle,
@@ -53,6 +53,12 @@ const Button = ({
       )}
     </StyledButton>
   );
+};
+
+Button.defaultProps = {
+  fullWidth: false,
+  size: 'medium',
+  variant: 'neutral',
 };
 
 export default Button;
