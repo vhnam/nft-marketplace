@@ -1,0 +1,30 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import Checkbox from './Checkbox';
+
+<Meta title="Design System/Atoms/Checkbox" component={Checkbox} />
+
+# Checkbox
+
+This is the doc of the Checkbox components.
+
+## Imports
+
+```tsx
+import { Checkbox } from 'design-system';
+```
+
+## Usage
+
+The main way to display text content on the screen
+
+<Canvas withSource="open">
+  <Story name="Variants">
+    <Checkbox label="Label" id="checkbox-off" />
+    <Checkbox label="Label" id="checkbox-on" selected={true} />
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Checkbox} />
