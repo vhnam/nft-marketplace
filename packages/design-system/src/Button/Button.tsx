@@ -1,29 +1,51 @@
 import styled from '@emotion/styled';
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import theme from '../theme';
 
-import { getSize, getVariant } from './styles';
-import { ButtonIcons, ButtonSizes, ButtonVariants } from './types';
+import StyledButtonIcon from './ButtonIcon';
+import { getSize, getVariant, setFullwidth } from './styles';
+import { ButtonSizes, ButtonVariants } from './types';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: 'none' | 'left' | 'right';
+  fullWidth?: boolean;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
   size?: 'x-small' | 'small' | 'medium';
   variant?: 'neutral' | 'tertiary';
 }
 
-const Button = styled.button<ButtonProps>(
+const StyledButton = styled.button<ButtonProps>(
   ({
-    icon = ButtonIcons.NONE,
+    fullWidth = false,
     size = ButtonSizes.MEDIUM,
     variant = ButtonVariants.NEUTRAL,
     ...props
-  }) => ({
-    ...props,
-    ...theme.button.baseStyle,
-    ...getSize(size),
-    ...getVariant(variant),
-  })
+  }) => {
+    const { children, ...componentProps } = props;
+    return {
+      ...componentProps,
+      ...theme.button.baseStyle,
+      ...getSize(size),
+      ...getVariant(variant),
+      ...setFullwidth(fullWidth),
+    };
+  }
 );
+
+const Button = ({ children, leftIcon, rightIcon, ...props }: ButtonProps) => {
+  return (
+    <StyledButton {...props}>
+      {leftIcon && (
+        <StyledButtonIcon position="left">{leftIcon}</StyledButtonIcon>
+      )}
+
+      {children}
+      {rightIcon && (
+        <StyledButtonIcon position="right">{rightIcon}</StyledButtonIcon>
+      )}
+    </StyledButton>
+  );
+};
 
 export default Button;

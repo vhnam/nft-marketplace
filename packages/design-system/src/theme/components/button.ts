@@ -2,7 +2,10 @@ import colors from '../foundations/colors';
 import typography from '../foundations/typography';
 
 const baseStyle = {
+  display: 'inline-flex',
+  appearance: 'none',
   ...typography.styles.button['01'],
+  verticalAlign: 'middle',
   borderRadius: '5.625rem',
 };
 

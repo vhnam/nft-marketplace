@@ -1,12 +1,21 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { BiInfoCircle } from 'react-icons/bi';
 
 import Button from './Button';
 
 <Meta title="Design System/Atoms/Button" component={Button} />
 
-# BaseButton
+# Button
 
-This is the doc of the `BaseButton` component
+Buttons are a way to perform actions within a page. They help interact with its content via a single click. According to their style, specific labels and icons, they help understand the most important actions to take.
+
+Best practices
+
+- A button should have a relevant and clear label.
+- Be positioned in consistent locations in the interface.
+- If there are no primary action on a screen yet, this might be the one to look for.
+- Prefer to have not more than two buttons side to side.
+- To navigate to another page in your browser (use Link component instead).
 
 <Canvas>
   <Story name="Variants">
@@ -14,6 +23,12 @@ This is the doc of the `BaseButton` component
     <Button variant="tertiary">Tertiary</Button>
   </Story>
 </Canvas>
+
+## Button Sizes
+
+Main actions usually use a `medium` button (top of a screen, footer of a modal, ...). For subsidiary action, a `small` button suits more (filters, configure the view, ...).
+
+Use the size prop to change the size of the button. You can set the value to `x-small`, `small` or `medium`.
 
 <Canvas>
   <Story name="Sizes">
@@ -23,6 +38,23 @@ This is the doc of the `BaseButton` component
   </Story>
 </Canvas>
 
+## Button with Icons
+
+A button can be associated with an icon to give more impact.
+
+You can add start and end icons to the Button component using the `leftIcon` and `rightIcon` props respectively.
+
+<Canvas>
+  <Story name="Icons">
+    <Button leftIcon={<BiInfoCircle />}>Icon Button</Button>
+    <Button rightIcon={<BiInfoCircle />}>Icon Button</Button>
+  </Story>
+</Canvas>
+
+## Button disabled
+
+All action that cannot be performed yet.
+
 <Canvas>
   <Story name="Disabled">
     <Button variant="neutral" disabled>
@@ -31,5 +63,15 @@ This is the doc of the `BaseButton` component
     <Button variant="tertiary" disabled>
       Tertiary
     </Button>
+  </Story>
+</Canvas>
+
+## Full width button
+
+All action that cannot be performed yet.
+
+<Canvas>
+  <Story name="Fullwidth">
+    <Button fullWidth>Information</Button>
   </Story>
 </Canvas>

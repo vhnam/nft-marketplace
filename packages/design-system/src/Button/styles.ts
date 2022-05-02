@@ -12,3 +12,13 @@ export const getVariant = (variant: string) => {
 export const getSize = (size: string) => {
   return theme.button.sizes[size];
 };
+
+export const setFullwidth = (isFullwidth: boolean) => {
+  return isFullwidth
+    ? {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+      }
+    : {};
+};

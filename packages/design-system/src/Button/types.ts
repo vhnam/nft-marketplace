@@ -3,12 +3,6 @@ export enum ButtonVariants {
   TERTIARY = 'tertiary',
 }
 
-export enum ButtonIcons {
-  NONE = 'none',
-  LEFT = 'left',
-  RIGHT = 'right',
-}
-
 export enum ButtonStates {
   DEFAULT = 'default',
   HOVER = 'hover',
