@@ -30,8 +30,8 @@ interface TypographyProps
 }
 
 const StyledTypography = styled.div<
-  Omit<TypographyProps, 'children' | 'theme'>
->(({ variant = 'body1', children, theme, ...props }) => ({
+  Omit<TypographyProps, 'as' | 'children' | 'theme'>
+>(({ variant = 'body1', as, children, theme, ...props }) => ({
   ...typography(getVariant(variant)),
   ...color(props),
   ...props,
