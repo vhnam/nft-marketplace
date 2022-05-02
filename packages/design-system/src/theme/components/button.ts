@@ -3,6 +3,7 @@ import typography from '../foundations/typography';
 
 const baseStyle = {
   display: 'inline-flex',
+  alignItems: 'center',
   appearance: 'none',
   ...typography.styles.button['01'],
   verticalAlign: 'middle',
@@ -34,6 +35,24 @@ const variantNeutral = {
   },
   '&:disabled': {
     backgroundColor: colors.primary['01']['700'],
+    opacity: 0.5,
+    cursor: 'default',
+  },
+};
+
+const variantDanger = {
+  color: colors.neutral['08'],
+  backgroundColor: colors.primary['03']['500'],
+  border: 'none',
+  cursor: 'pointer',
+  '&:hover': {
+    backgroundColor: colors.primary['03']['600'],
+  },
+  '&:active': {
+    backgroundColor: colors.primary['03']['700'],
+  },
+  '&:disabled': {
+    backgroundColor: colors.primary['03']['700'],
     opacity: 0.5,
     cursor: 'default',
   },
@@ -101,6 +120,7 @@ const variants: Record<string, any> = {
     variantDark,
     variantLight,
   },
+  danger: variantDanger,
 };
 
 export default {

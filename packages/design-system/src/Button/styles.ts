@@ -16,7 +16,6 @@ export const getSize = (size: string) => {
 export const setFullwidth = (isFullwidth: boolean) => {
   return isFullwidth
     ? {
-        alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
       }

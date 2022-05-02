@@ -12,17 +12,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   size?: 'x-small' | 'small' | 'medium';
-  variant?: 'neutral' | 'tertiary';
+  variant?: 'neutral' | 'tertiary' | 'danger';
 }
 
-const StyledButton = styled.button<ButtonProps>(
+const StyledButton = styled.button<Omit<ButtonProps, 'children' | 'type'>>(
   ({
     fullWidth = false,
     size = ButtonSizes.MEDIUM,
     variant = ButtonVariants.NEUTRAL,
     ...props
   }) => {
-    const { children, ...componentProps } = props;
+    const { children, type, ...componentProps } = props;
+    console.log(size)
     return {
       ...componentProps,
       ...theme.button.baseStyle,
@@ -33,9 +34,15 @@ const StyledButton = styled.button<ButtonProps>(
   }
 );
 
-const Button = ({ children, leftIcon, rightIcon, ...props }: ButtonProps) => {
+const Button = ({
+  children,
+  leftIcon,
+  rightIcon,
+  type = 'button',
+  ...props
+}: ButtonProps) => {
   return (
-    <StyledButton {...props}>
+    <StyledButton type={type} {...props}>
       {leftIcon && (
         <StyledButtonIcon position="left">{leftIcon}</StyledButtonIcon>
       )}

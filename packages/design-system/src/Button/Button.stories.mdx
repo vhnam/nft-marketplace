@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { BiInfoCircle } from 'react-icons/bi';
 
 import Button from './Button';
@@ -17,10 +17,30 @@ Best practices
 - Prefer to have not more than two buttons side to side.
 - To navigate to another page in your browser (use Link component instead).
 
-<Canvas>
-  <Story name="Variants">
+## Imports
+
+```ts
+import { Button } from 'design-system';
+```
+
+## Button variants
+
+Use the variant prop to change the visual style of the Button. You can set the value to `neutral`, `tertiary`, `success`, `danger`.
+
+<Canvas withSource="open">
+  <Story
+    name="Variants"
+    decorators={[
+      (Story) => (
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <Story />
+        </div>
+      ),
+    ]}
+  >
     <Button variant="neutral">Neutral</Button>
     <Button variant="tertiary">Tertiary</Button>
+    <Button variant="danger">Danger</Button>
   </Story>
 </Canvas>
 
@@ -30,7 +50,7 @@ Main actions usually use a `medium` button (top of a screen, footer of a modal, 
 
 Use the size prop to change the size of the button. You can set the value to `x-small`, `small` or `medium`.
 
-<Canvas>
+<Canvas withSource="open">
   <Story name="Sizes">
     <Button size="x-small">X-Small</Button>
     <Button size="small">Small</Button>
@@ -44,8 +64,17 @@ A button can be associated with an icon to give more impact.
 
 You can add start and end icons to the Button component using the `leftIcon` and `rightIcon` props respectively.
 
-<Canvas>
-  <Story name="Icons">
+<Canvas withSource="open">
+  <Story
+    name="Icons"
+    decorators={[
+      (Story) => (
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <Story />
+        </div>
+      ),
+    ]}
+  >
     <Button leftIcon={<BiInfoCircle />}>Icon Button</Button>
     <Button rightIcon={<BiInfoCircle />}>Icon Button</Button>
   </Story>
@@ -55,13 +84,25 @@ You can add start and end icons to the Button component using the `leftIcon` and
 
 All action that cannot be performed yet.
 
-<Canvas>
-  <Story name="Disabled">
+<Canvas withSource="open">
+  <Story
+    name="Disabled"
+    decorators={[
+      (Story) => (
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <Story />
+        </div>
+      ),
+    ]}
+  >
     <Button variant="neutral" disabled>
       Neutral
     </Button>
     <Button variant="tertiary" disabled>
       Tertiary
+    </Button>
+    <Button variant="danger" disabled>
+      Danger
     </Button>
   </Story>
 </Canvas>
@@ -70,8 +111,10 @@ All action that cannot be performed yet.
 
 All action that cannot be performed yet.
 
-<Canvas>
+<Canvas withSource="open">
   <Story name="Fullwidth">
-    <Button fullWidth>Information</Button>
+    <Button fullWidth leftIcon={<BiInfoCircle />} rightIcon={<BiInfoCircle />}>
+      Information
+    </Button>
   </Story>
 </Canvas>
