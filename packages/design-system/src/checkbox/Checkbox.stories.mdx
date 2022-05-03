@@ -6,7 +6,14 @@ import Checkbox from './Checkbox';
 
 # Checkbox
 
-This is the doc of the Checkbox components.
+Checkboxes allow users to choose one or multiple values from a range of options.
+
+Best practices
+
+- Content of the checkbox should be concise and straightforward.
+- Use the Radio button component if the user should select only one value.
+- Start all checkbox labels with a capital letter.
+- Avoid using hint state in tables.
 
 ## Imports
 
@@ -16,12 +23,9 @@ import { Checkbox } from 'design-system';
 
 ## Usage
 
-The main way to display text content on the screen
-
 <Canvas withSource="open">
-  <Story name="Variants">
-    <Checkbox label="Label" id="checkbox-off" />
-    <Checkbox label="Label" id="checkbox-on" selected={true} />
+  <Story name="Base">
+    <Checkbox id="checkbox" label="I agree Stack terms of service" />
   </Story>
 </Canvas>
 
